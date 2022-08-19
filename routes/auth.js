@@ -17,4 +17,17 @@ router.get(
   }
 );
 
+//@desc Logout User
+//@route /auth/logout
+
+//passport 0.6 requires the logout to be async
+router.get("/logout", (req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
 module.exports = router;

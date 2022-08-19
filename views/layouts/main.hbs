@@ -14,15 +14,20 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style.css" />
+
     <title>Storybooks - Leila DEMO</title>
   </head>
   <body>
+  {{> _header}}
     <div class="container">
-      {{{body}}}
+    {{{body}}}
     </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"
-    ></script>
 
-  </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        M.Sidenav.init(document.querySelector('.sidenav'))
+    </script>
+</body>
 </html>
+
