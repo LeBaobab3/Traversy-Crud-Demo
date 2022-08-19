@@ -20,12 +20,13 @@ const UserSchema = new mongoose.Schema({
   image: {
     type: String,
   },
-  createAt: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
 });
 
-//"User" is the collection name. Mongoose will create a collection for you if you dont' specifiy. It'll be in plural "Users"
 module.exports = mongoose.model("User", UserSchema);
+
+//"User" is the collection name. Mongoose will create a collection for you if you dont' specifiy. It'll be in plural "Users"
 //if you had a collection name already set up in Mongodb, add a third argument with 'collection-name' to reference it.
