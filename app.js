@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 //Handlebar Helpers
-const { formatDate, stripTags, truncate } = require("./helpers/hbs");
+const { formatDate, stripTags, truncate, editIcon } = require("./helpers/hbs");
 
 //Handlebars (our templating engine)
 //add the word .engine after exphbs
@@ -38,6 +38,7 @@ app.engine(
       formatDate,
       stripTags,
       truncate,
+      editIcon,
     },
     defaultLayout: "main",
     extname: ".hbs",
@@ -60,6 +61,13 @@ app.use(
 //Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Set global folder var
+app.use(function (req, res, next) {
+  //we call next to go into the next piece of middleware
+  res.locals.user = req.user || null; //we're getting the user value from passport above
+  next();
+});
 
 // Static folder
 app.use(express.static(path.join("public")));

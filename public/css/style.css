@@ -6,3 +6,7 @@ p {
   margin-top: 50px;
   text-align: center;
 }
+
+.fas-small {
+  font-size: 16px !important;
+}
